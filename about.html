@@ -11,10 +11,356 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- local stysheet -->
-     <link rel="stylesheet" href="/stylesheet.css">
     
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .top-nav {
+            background-color: #1d87e4;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-nav ul {
+            list-style: none;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .social-icons-top a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+
+        .main-navbar {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 25px 0;
+        }
+        
+        .main-navbar .container-fluid {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar-brand img {
+            height: 60px;
+        }
+
+        .navbar-nav .nav-link {
+            color: #333;
+            font-weight: 500;
+            padding: 8px 20px;
+            transition: color 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #1d87e4;
+        }
+
+        .btn-hire {
+            background-color: #dc3545;
+            color: white !important;
+            border-radius: 25px;
+            padding: 10px 25px !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, rgba(29, 135, 228, 0.85) 0%, rgba(13, 71, 161, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1920') center/cover;
+            color: white;
+            padding: 48px 20px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 60px;
+            text-align: left;
+        }
+
+        .hero-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-hero-primary {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-hero-primary:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .btn-hero-secondary {
+            background-color: white;
+            color: #1d87e4;
+            border: 2px solid white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-hero-secondary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .portfolio-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            color: #1d87e4;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .carousel-inner img {
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .carousel-indicators button {
+            background-color: #1d87e4;
+        }
+
+        .image-quad {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .quad-tile {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            height: 300px;
+            transition: transform 0.3s;
+        }
+
+        .quad-tile:hover {
+            transform: scale(1.05);
+        }
+
+        .quad-tile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experts-section {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .expert-card {
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .expert-card h2 {
+            color: #1d87e4;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .expert-card p:first-of-type {
+            color: #1d87e4;
+        }
+
+        .expert-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 25px;
+            background-color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .expert-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .expert-info h4 {
+            color: #1d87e4;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .expert-info p {
+            color: #666;
+        }
+
+        .expert-info a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary-red {
+            background-color: #dc3545;
+            color: white;
+            padding: 12px 35px;
+            border-radius: 25px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary-red:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+
+        .care-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .care-section h2 {
+            color: #1d87e4;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .care-section p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .care-carousel-img {
+            border-radius: 15px;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .footer {
+            background-color: #1d1d1d;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer h5 {
+            color: #1d87e4;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #1d87e4;
+        }
+
+        .social-icons a {
+            color: white;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #1d87e4;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            margin-top: 40px;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .quad-tile {
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Top Navigation -->
@@ -39,7 +385,7 @@
     <nav class="navbar navbar-expand-lg main-navbar sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#home">
-                <img src="/assets/Champ Home care logo png.png" alt="Champ Home Care LLC">
+                <img src="assets/Champ-homecare-logo.png" alt="Champ Home Care LLC">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -62,15 +408,13 @@
         <div class="hero-content">
             <h3>About Champ Home Care LLC</h3>
             <h1>We Are Committed to Providing Affordable In-Home Care Services in California</h1>
-            <p>At Champ Home Care Home LLC, we provide affordable in-home care services in California, helping seniors and older adults with non-medical daily living needs. Our in-home caregiving service experts offer support with meal preparation, bathing, dressing, toileting, light housekeeping, medication reminders, and safe transportation.</p>
+            <p>At Champ Home Care LLC, we provide affordable in-home care services in California, helping seniors and older adults with non-medical daily living needs. Our in-home caregiving service experts offer support with meal preparation, bathing, dressing, toileting, light housekeeping, medication reminders, and safe transportation.</p>
             <div class="hero-buttons">
                 <button class="btn btn-hero-primary">Join as A Caregiver</button>
                 <button class="btn btn-hero-secondary">Hire A Caregiver</button>
             </div>
         </div>
     </section>
-
-    
 
     <!-- Portfolio Carousel -->
     <section class="portfolio-section">
@@ -141,10 +485,10 @@
             <div class="row">
                 <div class="col-lg-5 mb-4 mb-lg-0">
                     <div class="expert-card">
-                        <p style="color: #666; font-weight: 600; text-transform: uppercase; font-size: 0.9rem; margin-bottom: 5px;">Our Experts</p>
+                        <p>Our Experts</p>
                         <h2>Dedicated Team Of Care Experts</h2>
-                        <p>We ensure the highest quality care with a dedicated team of top-tier caregivers, expert care managers, and 24/7 support staff. You'll never worry about missed care, after-hours contact, or last-minute schedule changes.</p>
-                        <a href="#contact" class="btn-primary-red mt-3">Know More About Us</a>
+                        <p style="color: #666;">We ensure the highest quality care with a dedicated team of top-tier caregivers, expert care managers, and 24/7 support staff. You'll never worry about missed care, after-hours contact, or last-minute schedule changes.</p>
+                        <a href="contact.html" class="btn-primary-red mt-3">Know More About Us</a>
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -153,7 +497,7 @@
                         <div class="expert-info">
                             <h4>Penaia Kautia</h4>
                             <p>His professional background is Operations and Project Management specialised in Procurement and Logistics.</p>
-                            <a href="#">View More <i class="bi bi-arrow-right"></i></a>
+                            <a href="contact.html">View More <i class="bi bi-arrow-down"></i></a>
                         </div>
                     </div>
                     
@@ -161,16 +505,14 @@
                         <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400" alt="Susan Vakaloloma" class="expert-avatar">
                         <div class="expert-info">
                             <h4>Susan Vakaloloma</h4>
-                            <p>Susan is the founder of Grace Care LLC. She was fascinated in the Caregiver Industry after migrating to the United States 10 years ago.</p>
-                            <a href="#">View More <i class="bi bi-arrow-right"></i></a>
+                            <p>Susan is the founder of Champ Home Care LLC. She was fascinated in the Caregiver Industry after migrating to the United States 10 years ago.</p>
+                            <a href="contact.html">View More <i class="bi bi-arrow-down"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    
 
     <!-- Advanced Care Section -->
     <section class="care-section">
@@ -206,14 +548,12 @@
         </div>
     </section>
 
-    
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5>Champ Home Care Home LLC</h5>
+                    <h5>Champ Home Care LLC</h5>
                     <p>Providing compassionate, affordable in-home care services across Northern California. We're dedicated to helping seniors maintain their independence and quality of life.</p>
                     <div class="social-icons mt-3">
                         <a href="#"><i class="bi bi-facebook"></i></a>
@@ -272,7 +612,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Grace Care Video" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Care Video" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -293,7 +633,6 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
-                    // Close mobile menu if open
                     const navbarCollapse = document.querySelector('.navbar-collapse');
                     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
                         const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
@@ -301,27 +640,6 @@
                             bsCollapse.hide();
                         }
                     }
-                }
-            });
-        });
-
-        // Add active class to nav items on scroll
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section[id]');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
                 }
             });
         });
